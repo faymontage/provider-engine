@@ -38,8 +38,8 @@ RpcSource.prototype.handleRequest = function(payload, next, end){
       case 405:
         return end(new JsonRpcError.MethodNotFound())
       case 504: // Gateway timeout
-        const msg = `Gateway timeout. The request took too long to process. `
-        msg += `This can happen when querying logs over too wide a block range.`
+        const msg = `Gateway timeout. The request took too long to process.
+          This can happen when querying logs over too wide a block range.`
         const err = new Error(msg)
         return end(new JsonRpcError.InternalError(err))
       default:
